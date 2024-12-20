@@ -99,7 +99,6 @@ class MainMenuState extends MusicBeatState
 		flamengo.scrollFactor.set(0, 0);
 		flamengo.updateHitbox();
 		flamengo.screenCenter();
-		flamengo.antialiasing = ClientPrefs.globalAntialiasing;
 		add(flamengo); // cool bar
 		
 		// magenta.scrollFactor.set();
