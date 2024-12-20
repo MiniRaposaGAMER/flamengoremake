@@ -33,6 +33,8 @@ class FreeplayState extends MusicBeatState
 	private static var lastDifficultyName:String = '';
 
 	var scoreBG:FlxSprite;
+	var portrait:FlxSprite;
+	var portraitOverlay:FlxSprite;
 	var scoreText:FlxText;
 	var diffText:FlxText;
 	var lerpScore:Int = 0;
@@ -105,6 +107,13 @@ class FreeplayState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
+		portrait = new FlxSprite().loadGraphic(Paths.image('freeplayportraits/fucker'));
+		portrait.scale.set(0.5,0.5);
+		portrait.updateHitbox();
+		portrait.antialiasing = ClientPrefs.data.antialiasing;
+		add(portrait);
+		portrait.screenCenter(XY);
+
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
@@ -133,6 +142,7 @@ class FreeplayState extends MusicBeatState
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 			// songText.screenCenter(X);
+			portrait.loadGraphic(Paths.image('freeplayportraits/'+songs[i].songName.toLowerCase()));
 		}
 		WeekData.setDirectoryFromWeek();
 
@@ -160,6 +170,7 @@ class FreeplayState extends MusicBeatState
 		curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(lastDifficultyName)));
 		
 		changeSelection();
+		updateportrait();
 		changeDiff();
 
 		var swag:Alphabet = new Alphabet(1, 0, "swag");
@@ -523,6 +534,26 @@ class FreeplayState extends MusicBeatState
 		}
 	}
 
+	inline private function _updateSongLastDifficulty()
+	{
+		songs[curSelected].lastDifficulty = Difficulty.getString(curDifficulty);
+
+		if (time >= 1)
+			{
+				FlxTween.globalManager.completeTweensOf(portrait);
+				portrait.screenCenter(Y);
+	
+				FlxTween.tween(portrait, {y: portrait.y + 45}, 0.2, {ease: FlxEase.quintIn, onComplete: function(twn:FlxTween) {
+					updateportrait();
+					var mfwY = portrait.y;
+					portrait.y -= 20;
+					FlxTween.tween(portrait, {y: mfwY}, 0.4, {ease: FlxEase.elasticOut});
+				}});
+			}
+			else
+				updateportrait();
+	}
+
 	private function positionHighscore() {
 		scoreText.x = FlxG.width - scoreText.width - 6;
 
@@ -533,6 +564,13 @@ class FreeplayState extends MusicBeatState
 	}
 }
 
+	private function updateportrait() {
+		portrait.loadGraphic(Paths.image('freeplayportraits/'+songs[curSelected].songName.toLowerCase()));
+		portrait.scale.set(0.5,0.5);
+		portrait.updateHitbox();
+		portrait.screenCenter(XY);
+	}
+		
 class SongMetadata
 {
 	public var songName:String = "";
