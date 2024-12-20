@@ -40,7 +40,6 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var magenta:FlxSprite;
-	var flamengo:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
@@ -96,6 +95,7 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 
 		var flamengo:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('storychar/flamengo'));
+		flamengo.setGraphicSize(Std.int(bg.width * 1));
 		flamengo.scrollFactor.set(0, 0);
 		flamengo.updateHitbox();
 		flamengo.screenCenter();
