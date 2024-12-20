@@ -40,6 +40,7 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var magenta:FlxSprite;
+	var flamengo:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
@@ -93,6 +94,13 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.data.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
+
+		var flamengo:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('storychar/flamengo'));
+		flamengo.scrollFactor.set(0, 0);
+		flamengo.updateHitbox();
+		flamengo.screenCenter();
+		flamengo.antialiasing = ClientPrefs.globalAntialiasing;
+		add(flamengo); // cool bar
 		
 		// magenta.scrollFactor.set();
 
