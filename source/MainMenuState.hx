@@ -98,8 +98,9 @@ class MainMenuState extends MusicBeatState
 		flamengo.setGraphicSize(Std.int(flamengo.width * 1.175));
 		flamengo.updateHitbox();
 		flamengo.screenCenter();
-		flamengo.antialiasing = ClientPrefs.globalAntialiasing;
-		add(flamengo);		
+		flamengo.antialiasing = ClientPrefs.data.globalAntialiasing;
+		add(flamengo);
+
 		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
