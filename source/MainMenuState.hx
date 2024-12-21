@@ -93,7 +93,7 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.data.globalAntialiasing;
 		add(magenta);
 
-		var flamengo:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('storychar/flamengo'));
+		var flamengo:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('freeplayportraits/flamengo'));
 		flamengo.scrollFactor.set(0, 0);
 		flamengo.setGraphicSize(Std.int(flamengo.width * 1.175));
 		flamengo.updateHitbox();
