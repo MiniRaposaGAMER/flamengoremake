@@ -95,12 +95,12 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 
 		var flamengo:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('storychar/flamengo'));
-		flamengo.setGraphicSize(Std.int(bg.width * 1));
 		flamengo.scrollFactor.set(0, 0);
+		flamengo.setGraphicSize(Std.int(flamengo.width * 1.175));
 		flamengo.updateHitbox();
 		flamengo.screenCenter();
-		add(flamengo); // cool bar
-		
+		flamengo.antialiasing = ClientPrefs.globalAntialiasing;
+		add(flamengo);		
 		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
