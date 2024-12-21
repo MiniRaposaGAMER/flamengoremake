@@ -91,7 +91,6 @@ class MainMenuState extends MusicBeatState
 		magenta.screenCenter();
 		magenta.visible = false;
 		magenta.antialiasing = ClientPrefs.data.globalAntialiasing;
-		magenta.color = 0xFFfd719b;
 		add(magenta);
 
 		var flamengo:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('storychar/flamengo'));
