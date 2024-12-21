@@ -78,6 +78,13 @@ class CreditsState extends MusicBeatState
 		#end
 
 		final defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['VS FLAMENGO'],
+			['MiniRaposaGamer',		'miniraposa',		'Composer,Artist and Coder',								'https://twitter.com/MiniRaposaGamer',	'444444'],
+			['Animacty',			'animacty',			'Artist',							'https://twitter.com/AnimaciteD',		'B42F71'],
+			['Lucas Barbosa',		'lucas',			'Composer',							'https://twitter.com/BarbosaMeneghin',		'a7e0f1'],
+			['Gaozoiro',			'gaozoiro',			'Artist',							'https://twitter.com/gaozoiro',		'3232ff'],
+			['SperkizGrape',			'sperkiz',			'Chromatic Maker and Created Neymar Icon',							'https://x.com/SperkizG',		'3232ff'],
+			[''],
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								 'https://ko-fi.com/shadowmario',		 '444444'],
 			['Riveren',				'riveren',			'Main Artist/Animator of Psych Engine',							 'https://twitter.com/riverennn',		 '14967B'],
